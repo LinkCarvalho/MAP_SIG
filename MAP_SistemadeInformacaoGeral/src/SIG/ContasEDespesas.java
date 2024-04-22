@@ -20,7 +20,7 @@ public class ContasEDespesas {
         return pagamento;
     }
 
-    private double valorLiquido(double valorBruto, double descontos) throws DescontoMaiorQueValorLiquidoException{
+    public double valorLiquido(double valorBruto, double descontos) throws DescontoMaiorQueValorLiquidoException{
         if (descontos > valorBruto){
             throw new DescontoMaiorQueValorLiquidoException();
         }
