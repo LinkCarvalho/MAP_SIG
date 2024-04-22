@@ -14,22 +14,16 @@ public class Main {
         Fachada facadeSIG = new Fachada();
 
         List<String> participantesReuniao = Arrays.asList("João", "Maria", "Carlos");
-        int diaReuniao = 15;
-        String assuntoReuniao = "Planejamento Estratégico";
-            String detalhesReuniao = facadeSIG.organizarReuniao(participantesReuniao, diaReuniao, assuntoReuniao);
-            System.out.println(detalhesReuniao);
+        System.out.println(facadeSIG.organizarReuniao(participantesReuniao, 15, "Planejamento Estrategico"));
+        System.out.println(facadeSIG.agendarReuniao("Planejamento estrategico"));
 
-
-        String entrevistador = "Ana";
         List<String> candidatos = Arrays.asList("Pedro", "Lucas");
-        int diaEntrevista = 20;
-        String cargo = "Desenvolvedor";
-        try {
-            String detalhesEntrevista = facadeSIG.realizarEntrevista(entrevistador, candidatos, diaEntrevista, cargo);
-            System.out.println(detalhesEntrevista);
-        } catch (DiainvalidoException | PoucosParticipantesException e) {
-            e.printStackTrace();
-        }
+        System.out.println(facadeSIG.realizarEntrevista("Sabrina", candidatos, 20, "Professor"));
+        System.out.println(facadeSIG.agendarEntrevistas("Professor"));
+
+        System.out.println(facadeSIG.disponibilidadeSala(9));
+        System.out.println(facadeSIG.definirSala(9));
+
 
 
 

@@ -14,7 +14,7 @@ public class ContasEDespesas {
         return balancoConta;
     }
 
-    public String folhaDePagamento(String titulo, double descontos, double valorBruto) {
+    public String folhaDePagamento(String titulo, double descontos, double valorBruto) throws DescontoMaiorQueValorLiquidoException {
         String pagamento = "Título: " + titulo + "\nValor Bruto: " + valorBruto + "\nDiscontos: " + descontos +
                 "\nValor Líquido: " + valorLiquido(valorBruto, descontos);
         return pagamento;
