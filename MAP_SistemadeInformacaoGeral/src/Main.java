@@ -14,15 +14,18 @@ public class Main {
         Fachada facadeSIG = new Fachada();
 
         List<String> participantesReuniao = Arrays.asList("João", "Maria", "Carlos");
-        System.out.println(facadeSIG.organizarReuniao(participantesReuniao, 15, "Planejamento Estrategico"));
-        System.out.println(facadeSIG.agendarReuniao("Planejamento estrategico"));
+        facadeSIG.organizarReuniao(participantesReuniao, 15, "Planejamento Estrategico");
+        System.out.println("----------------------------------------------------------------------");
 
         List<String> candidatos = Arrays.asList("Pedro", "Lucas");
-        System.out.println(facadeSIG.realizarEntrevista("Sabrina", candidatos, 20, "Professor"));
-        System.out.println(facadeSIG.agendarEntrevistas("Professor"));
+        facadeSIG.realizarEntrevista("Sabrina", candidatos, 20, "Professor");
+        System.out.println("----------------------------------------------------------------------");
 
-        System.out.println(facadeSIG.disponibilidadeSala(9));
-        System.out.println(facadeSIG.definirSala(9));
+        facadeSIG.disponibilidadeSala(9);
+        System.out.println("----------------------------------------------------------------------");
+
+
+
 
 
 

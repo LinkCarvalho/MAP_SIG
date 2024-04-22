@@ -8,85 +8,78 @@ import excesoes.ItemJaExisteException;
 import excesoes.DescontoMaiorQueValorLiquidoException;
 
 public class Fachada {
-    private Administrativo administrativo;
-    private Almoxarifado almoxarifado;
-    private Aluno aluno;
-    private Infraestrutura infraestrutura;
-    private Professor professor;
-    private ContasEDespesas contasEDespesas;
+    private final Administrativo ADMINISTRATIVO;
+    private final Almoxarifado ALMOXARIFADO;
+    private final Aluno ALUNO;
+    private final Infraestrutura INFRAESTRUTURA;
+    private final Professor PROFESSOR;
+    private final ContasEDespesas CONTAS_E_DESPESAS;
 
     public Fachada() {
-        this.administrativo = new Administrativo();
-        this.almoxarifado = new Almoxarifado();
-        this.aluno = new Aluno();
-        this.infraestrutura = new Infraestrutura();
-        this.professor = new Professor();
-        this.contasEDespesas = new ContasEDespesas();
+        this.ADMINISTRATIVO = new Administrativo();
+        this.ALMOXARIFADO = new Almoxarifado();
+        this.ALUNO = new Aluno();
+        this.INFRAESTRUTURA = new Infraestrutura();
+        this.PROFESSOR = new Professor();
+        this.CONTAS_E_DESPESAS = new ContasEDespesas();
     }
 
     // Métodos que unificam as operações das classes
-    public String organizarReuniao(List<String> participantes, int dia, String assunto) throws DiainvalidoException, PoucosParticipantesException {
-        return administrativo.organizarUmaReuniao(participantes, dia, assunto);
+    public void organizarReuniao(List<String> participantes, int dia, String assunto) throws DiainvalidoException, PoucosParticipantesException {
+        System.out.println(ADMINISTRATIVO.organizarUmaReuniao(participantes, dia, assunto));
+        System.out.println(ADMINISTRATIVO.agendarReuniao(assunto));
     }
 
-    public String agendarReuniao(String assunto){
-        return administrativo.agendarReuniao(assunto);
+
+    public void realizarEntrevista(String entrevistador, List<String> candidatos, int dia, String cargo) throws DiainvalidoException, PoucosParticipantesException {
+        System.out.println(ADMINISTRATIVO.realizarUmaEntrevista(entrevistador, candidatos, dia, cargo));
+        System.out.println(ADMINISTRATIVO.agendarEntrevistas(cargo));
     }
 
-    public String realizarEntrevista(String entrevistador, List<String> candidatos, int dia, String cargo) throws DiainvalidoException, PoucosParticipantesException {
-        return administrativo.realizarUmaEntrevista(entrevistador, candidatos, dia, cargo);
-    }
-
-    public String agendarEntrevistas(String cargo){
-        return administrativo.agendarEntrevistas(cargo);
-    }
 
     public void inventario(){
-        almoxarifado.inventario();
+        ALMOXARIFADO.inventario();
     }
 
     public String pedirMaterial(String nome, String preco){
-        return almoxarifado.pedirMaterial(nome, preco);
+        return ALMOXARIFADO.pedirMaterial(nome, preco);
     }
 
     public String confirmarMaterial(String nome){
-        return almoxarifado.confirmarMaterial(nome);
+        return ALMOXARIFADO.confirmarMaterial(nome);
     }
 
     public void adicionarItem(String nome, double preco) throws ItemJaExisteException {
-        almoxarifado.adicionarItem(nome, preco);
+        ALMOXARIFADO.adicionarItem(nome, preco);
     }
 
     public String historicoAluno(String nome){
-        return aluno.historicoAluno(nome);
+        return ALUNO.historicoAluno(nome);
     }
 
     public String rdmAluno(String nome){
-        return aluno.rdmAluno(nome);
+        return ALUNO.rdmAluno(nome);
     }
 
-    public String disponibilidadeSala(int numSala) throws NumeroSalaInvalidoException {
-        return infraestrutura.disponibilidade(numSala);
-    }
-
-    public String definirSala(int numSala){
-        return infraestrutura.definirSala(numSala);
+    public void disponibilidadeSala(int numSala) throws NumeroSalaInvalidoException {
+        System.out.println(INFRAESTRUTURA.disponibilidade(numSala));
+        System.out.println(INFRAESTRUTURA.definirSala(numSala));
     }
 
     public String atribuirProfessorParaDisciplina(String nome, String disciplina){
-        return professor.atribuirProfessorParaDisciplina(nome, disciplina);
+        return PROFESSOR.atribuirProfessorParaDisciplina(nome, disciplina);
     }
 
     public String consultaTempoProfessor(String nome){
-        return professor.consultaTempo(nome);
+        return PROFESSOR.consultaTempo(nome);
     }
 
     public String balanco(List<Conta> contas) {
-        return contasEDespesas.balanco(contas);
+        return CONTAS_E_DESPESAS.balanco(contas);
     }
 
     public String folhaDePagamento(String titulo, double descontos, double valorBruto) throws DescontoMaiorQueValorLiquidoException {
-        return contasEDespesas.folhaDePagamento(titulo, descontos, valorBruto);
+        return CONTAS_E_DESPESAS.folhaDePagamento(titulo, descontos, valorBruto);
     }
 }
 
