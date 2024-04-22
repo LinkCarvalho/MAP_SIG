@@ -2,11 +2,16 @@ package SIG;
 
 import excesoes.ItemJaExisteException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Almoxarifado {
 
     private List<Item> inventario;
+
+    public Almoxarifado() {
+        this.inventario = new ArrayList<>();
+    }
 
     public void inventario() {
         System.out.println("Inventário da Universidade: ");
@@ -23,7 +28,7 @@ public class Almoxarifado {
         return "Pedido do item " + nome + " confirmado";
     }
 
-    public void adicionarItem(String nome, double preco) throws ItemJaExisteException {
+    public void adicionarItem(String nome, String preco) throws ItemJaExisteException {
         Item novoItem = new Item(nome, preco);
         if(inventario.contains(novoItem)){
             throw new ItemJaExisteException();

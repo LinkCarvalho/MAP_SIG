@@ -41,24 +41,18 @@ public class Fachada {
         ALMOXARIFADO.inventario();
     }
 
-    public String pedirMaterial(String nome, String preco){
-        return ALMOXARIFADO.pedirMaterial(nome, preco);
-    }
-
-    public String confirmarMaterial(String nome){
-        return ALMOXARIFADO.confirmarMaterial(nome);
-    }
-
-    public void adicionarItem(String nome, double preco) throws ItemJaExisteException {
+    public void pedido(String nome, String preco) throws ItemJaExisteException {
+        System.out.println(ALMOXARIFADO.pedirMaterial(nome, preco));
+        System.out.println(ALMOXARIFADO.confirmarMaterial(nome));
         ALMOXARIFADO.adicionarItem(nome, preco);
     }
 
-    public String historicoAluno(String nome){
-        return ALUNO.historicoAluno(nome);
+    public void historicoAluno(String nome){
+        System.out.println(ALUNO.historicoAluno(nome));
     }
 
-    public String rdmAluno(String nome){
-        return ALUNO.rdmAluno(nome);
+    public void rdmAluno(String nome){
+        System.out.println(ALUNO.rdmAluno(nome));
     }
 
     public void disponibilidadeSala(int numSala) throws NumeroSalaInvalidoException {
@@ -66,12 +60,12 @@ public class Fachada {
         System.out.println(INFRAESTRUTURA.definirSala(numSala));
     }
 
-    public String atribuirProfessorParaDisciplina(String nome, String disciplina){
-        return PROFESSOR.atribuirProfessorParaDisciplina(nome, disciplina);
+    public void atribuirProfessorParaDisciplina(String nome, String disciplina){
+        System.out.println(PROFESSOR.atribuirProfessorParaDisciplina(nome, disciplina));
     }
 
-    public String consultaTempoProfessor(String nome){
-        return PROFESSOR.consultaTempo(nome);
+    public void consultaTempoProfessor(String nome){
+        System.out.println(PROFESSOR.consultaTempo(nome));
     }
 
     public String balanco(List<Conta> contas) {

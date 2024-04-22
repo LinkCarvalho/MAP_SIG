@@ -2,9 +2,9 @@ package SIG;
 
 public class Item {
     private String nome;
-    private double preco;
+    private String preco;
 
-    public Item(String nome, double preco) {
+    public Item(String nome, String preco) {
         this.nome = nome;
         this.preco = preco;
     }
@@ -17,11 +17,11 @@ public class Item {
         this.nome = nome;
     }
 
-    public double getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 }
